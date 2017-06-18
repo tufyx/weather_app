@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 protocol OpenWeatherAPIProtocol {
     
@@ -19,7 +20,7 @@ protocol OpenWeatherAPIProtocol {
 
 protocol OpenWeatherAPIDelegate: class, BaseProtocol {
     
-    func didReceiveData(response: Any?)
+    func didReceiveDataFor(city: CityWeatherData)
     
 }
 
@@ -42,8 +43,16 @@ class OpenWeatherAPIService: OpenWeatherAPIProtocol {
             ]
         )
         
+        
         networkService.request(apiRequest: request, delegate: delegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
-            self.delegate?.didReceiveData(response: response.value)
+            if let v = response.value {
+//                self.delegate?.didReceiveDataFor(city: CityWeatherData(json: JSON(v)))
+                self.delegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
+                return
+            }
+            
+            self.delegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
+            
         })
     }
     

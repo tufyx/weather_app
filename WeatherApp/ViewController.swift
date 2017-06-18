@@ -31,10 +31,10 @@ class ViewController: UIViewController {
 
 extension ViewController: OpenWeatherAPIDelegate {
     
-    func didReceiveData(response: Any?) {
+    func didReceiveDataFor(city: CityWeatherData) {
         requestButton.isEnabled = true
-        print("did receive open weather data")
-        print("response > \(String(describing: response))")
+        print("did receive open weather data for \(city.name)")
+        print(city)
     }
     
     func didReceive(error: NSError) {
