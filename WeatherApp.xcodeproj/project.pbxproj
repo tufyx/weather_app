@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C841BB354942166B87D7044 /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9023F129F3A07CF143A3600E /* libPods-WeatherApp.a */; };
 		F870C5611EF68C5E00D35E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870C5601EF68C5E00D35E18 /* AppDelegate.swift */; };
 		F870C5631EF68C5E00D35E18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870C5621EF68C5E00D35E18 /* ViewController.swift */; };
 		F870C5661EF68C5E00D35E18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F870C5641EF68C5E00D35E18 /* Main.storyboard */; };
@@ -37,6 +38,10 @@
 		F8CBE2D41EF6E19100E06ED2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8CBE2D31EF6E19100E06ED2 /* SwiftyJSON.framework */; };
 		F8CBE2D51EF6E19100E06ED2 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8CBE2D31EF6E19100E06ED2 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8CBE2D71EF6E1AE00E06ED2 /* JSONProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBE2D61EF6E1AE00E06ED2 /* JSONProtocol.swift */; };
+		F8D118061EF6E9C9002967DA /* GooglePlacesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D118051EF6E9C9002967DA /* GooglePlacesAssembly.swift */; };
+		F8D118081EF6EEDF002967DA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D118071EF6EEDF002967DA /* CoreLocation.framework */; };
+		F8D1180A1EF6F6E6002967DA /* APIKeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D118091EF6F6E6002967DA /* APIKeyProvider.swift */; };
+		F8D1180D1EF6F714002967DA /* OpenWeatherKeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1180C1EF6F714002967DA /* OpenWeatherKeyProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B0D20B9F0E535CDF48FD9EC /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
+		40B42DEC9EE0FBB89C36F841 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		9023F129F3A07CF143A3600E /* libPods-WeatherApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F870C55D1EF68C5E00D35E18 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F870C5601EF68C5E00D35E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F870C5621EF68C5E00D35E18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +115,10 @@
 		F8CBE2D11EF6D9B900E06ED2 /* WeatherCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCondition.swift; sourceTree = "<group>"; };
 		F8CBE2D31EF6E19100E06ED2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		F8CBE2D61EF6E1AE00E06ED2 /* JSONProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProtocol.swift; sourceTree = "<group>"; };
+		F8D118051EF6E9C9002967DA /* GooglePlacesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAssembly.swift; sourceTree = "<group>"; };
+		F8D118071EF6EEDF002967DA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F8D118091EF6F6E6002967DA /* APIKeyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeyProvider.swift; sourceTree = "<group>"; };
+		F8D1180C1EF6F714002967DA /* OpenWeatherKeyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherKeyProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +126,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D118081EF6EEDF002967DA /* CoreLocation.framework in Frameworks */,
 				F8CBE2D41EF6E19100E06ED2 /* SwiftyJSON.framework in Frameworks */,
 				F8CBE2AB1EF6C4AA00E06ED2 /* Swinject.framework in Frameworks */,
 				F8CBE28F1EF6B41300E06ED2 /* SwinjectStoryboard.framework in Frameworks */,
 				F8CBE28A1EF6B3F700E06ED2 /* Alamofire.framework in Frameworks */,
+				2C841BB354942166B87D7044 /* libPods-WeatherApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4E74E062558A66E9A976C4D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B0D20B9F0E535CDF48FD9EC /* Pods-WeatherApp.debug.xcconfig */,
+				40B42DEC9EE0FBB89C36F841 /* Pods-WeatherApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F870C5541EF68C5E00D35E18 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +169,7 @@
 				F870C57F1EF68C5E00D35E18 /* WeatherAppUITests */,
 				F870C55E1EF68C5E00D35E18 /* Products */,
 				F8CBE2881EF6B3F600E06ED2 /* Frameworks */,
+				D4E74E062558A66E9A976C4D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +196,7 @@
 				F870C5691EF68C5E00D35E18 /* LaunchScreen.storyboard */,
 				F870C56C1EF68C5E00D35E18 /* Info.plist */,
 				F8CBE2AF1EF6C79400E06ED2 /* NetworkAssembly.swift */,
+				F8D118051EF6E9C9002967DA /* GooglePlacesAssembly.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -197,17 +222,21 @@
 		F8CBE2881EF6B3F600E06ED2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8D118071EF6EEDF002967DA /* CoreLocation.framework */,
 				F8CBE2D31EF6E19100E06ED2 /* SwiftyJSON.framework */,
 				F8CBE2AA1EF6C4AA00E06ED2 /* Swinject.framework */,
 				F8CBE28E1EF6B41300E06ED2 /* SwinjectStoryboard.framework */,
 				F8CBE28B1EF6B40100E06ED2 /* WeatherApp.xcodeproj */,
 				F8CBE2891EF6B3F700E06ED2 /* Alamofire.framework */,
+				9023F129F3A07CF143A3600E /* libPods-WeatherApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F8CBE28C1EF6B40100E06ED2 /* Products */ = {
 			isa = PBXGroup;
+			children = (
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -218,6 +247,7 @@
 				F8CBE2B91EF6D2F800E06ED2 /* BaseProtocol.swift */,
 				F8CBE2B11EF6D2E600E06ED2 /* OpenWeatherAPIProtocol.swift */,
 				F8CBE2B21EF6D2E600E06ED2 /* OpenWeatherURLBuilder.swift */,
+				F8D1180C1EF6F714002967DA /* OpenWeatherKeyProvider.swift */,
 			);
 			name = OpenWeather;
 			sourceTree = "<group>";
@@ -230,6 +260,7 @@
 				F8CBE2B81EF6D2F800E06ED2 /* APIEndpoint.swift */,
 				F8CBE2BA1EF6D2F800E06ED2 /* URLBuilderProtocol.swift */,
 				F8CBE2BB1EF6D2F800E06ED2 /* NetworkProtocol.swift */,
+				F8D118091EF6F6E6002967DA /* APIKeyProvider.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -261,10 +292,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F870C5851EF68C5E00D35E18 /* Build configuration list for PBXNativeTarget "WeatherApp" */;
 			buildPhases = (
+				3C1C5295C4E3046DAE2930B7 /* [CP] Check Pods Manifest.lock */,
 				F870C5591EF68C5E00D35E18 /* Sources */,
 				F870C55A1EF68C5E00D35E18 /* Frameworks */,
 				F870C55B1EF68C5E00D35E18 /* Resources */,
 				F8CBE2941EF6B41800E06ED2 /* Embed Frameworks */,
+				FF9BDF6F2A74EF1E4A9F0BF4 /* [CP] Embed Pods Frameworks */,
+				04490B1DC594F4B04DAB107A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -393,12 +427,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04490B1DC594F4B04DAB107A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C1C5295C4E3046DAE2930B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FF9BDF6F2A74EF1E4A9F0BF4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F870C5591EF68C5E00D35E18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F8CBE2BF1EF6D2F800E06ED2 /* BaseProtocol.swift in Sources */,
+				F8D1180D1EF6F714002967DA /* OpenWeatherKeyProvider.swift in Sources */,
 				F8CBE2C71EF6D55B00E06ED2 /* URLExtension.swift in Sources */,
 				F8CBE2C61EF6D55B00E06ED2 /* SwinjectStoryboard+Setup.swift in Sources */,
 				F870C5631EF68C5E00D35E18 /* ViewController.swift in Sources */,
@@ -408,12 +491,14 @@
 				F8CBE2B41EF6D2E600E06ED2 /* OpenWeatherURLBuilder.swift in Sources */,
 				F8CBE2D21EF6D9B900E06ED2 /* WeatherCondition.swift in Sources */,
 				F870C5611EF68C5E00D35E18 /* AppDelegate.swift in Sources */,
+				F8D118061EF6E9C9002967DA /* GooglePlacesAssembly.swift in Sources */,
 				F8CBE2BC1EF6D2F800E06ED2 /* NetworkService.swift in Sources */,
 				F8CBE2C81EF6D55B00E06ED2 /* StringExtensions.swift in Sources */,
 				F8CBE2D71EF6E1AE00E06ED2 /* JSONProtocol.swift in Sources */,
 				F8CBE2C11EF6D2F800E06ED2 /* NetworkProtocol.swift in Sources */,
 				F8CBE2B01EF6C79400E06ED2 /* NetworkAssembly.swift in Sources */,
 				F8CBE2D01EF6D9AE00E06ED2 /* CityWeatherData.swift in Sources */,
+				F8D1180A1EF6F6E6002967DA /* APIKeyProvider.swift in Sources */,
 				F8CBE2BE1EF6D2F800E06ED2 /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +649,7 @@
 		};
 		F870C5861EF68C5E00D35E18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B0D20B9F0E535CDF48FD9EC /* Pods-WeatherApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AL85EHGD2;
@@ -581,6 +667,7 @@
 		};
 		F870C5871EF68C5E00D35E18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40B42DEC9EE0FBB89C36F841 /* Pods-WeatherApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AL85EHGD2;

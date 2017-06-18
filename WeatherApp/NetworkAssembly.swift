@@ -13,6 +13,10 @@ class NetworkAssembly: Assembly {
     
     func assemble(container: Container) {
         
+        container.register(APIKeyProvider.self) { (_) -> APIKeyProvider in
+            return OpenWeatherKeyProvider()
+        }
+        
         container.register(URLBuilderProtocol.self) { (_) -> URLBuilderProtocol in
             return OpenWeatherURLBuilder()
         }
@@ -22,7 +26,10 @@ class NetworkAssembly: Assembly {
         }
         
         container.register(OpenWeatherAPIProtocol.self) { (resolver) -> OpenWeatherAPIProtocol in
-            return OpenWeatherAPIService(service: resolver.resolve(NetworkProtocol.self)!)
+            return OpenWeatherAPIService(
+                service: resolver.resolve(NetworkProtocol.self)!,
+                keyProvider: resolver.resolve(APIKeyProvider.self)!
+            )
         }
     }
     

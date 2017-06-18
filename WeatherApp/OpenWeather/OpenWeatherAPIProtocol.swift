@@ -14,7 +14,7 @@ protocol OpenWeatherAPIProtocol {
     
     var delegate: OpenWeatherAPIDelegate? { get set }
     
-    func weatherForCity(city: String, inCountry: String)
+    func weatherForCity(city: String)
     
 }
 
@@ -27,27 +27,28 @@ protocol OpenWeatherAPIDelegate: class, BaseProtocol {
 class OpenWeatherAPIService: OpenWeatherAPIProtocol {
     
     let networkService: NetworkProtocol
+    let keyProvider: APIKeyProvider
     
     weak var delegate: OpenWeatherAPIDelegate?
     
-    init(service: NetworkProtocol) {
+    init(service: NetworkProtocol, keyProvider: APIKeyProvider) {
         self.networkService = service
+        self.keyProvider = keyProvider
     }
     
-    func weatherForCity(city: String, inCountry country: String) {
+    func weatherForCity(city: String) {
         let request = APIRequest(
             endpoint: .Weather,
             bodyParams: [
-                "q": "\(city),\(country)",
-                "appId": "dc3ab2fad7af61db48b6fa9acaad7369"
+                "q": "\(city)",
+                "appId": keyProvider.provideAPIKey()
             ]
         )
         
         
         networkService.request(apiRequest: request, delegate: delegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
-            if let v = response.value {
-//                self.delegate?.didReceiveDataFor(city: CityWeatherData(json: JSON(v)))
-                self.delegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
+            if let value = response.value {
+                self.delegate?.didReceiveDataFor(city: CityWeatherData(json: JSON(value)))
                 return
             }
             

@@ -9,13 +9,15 @@
 import Foundation
 import Swinject
 import SwinjectStoryboard
+import GooglePlaces
 
 extension SwinjectStoryboard {
     
     class func setup() {
         Container.loggingFunction = nil
         _ = Assembler([
-            NetworkAssembly()
+            NetworkAssembly(),
+            GooglePlacesAssembly()
             ], container: defaultContainer
         )
         
@@ -26,6 +28,8 @@ extension SwinjectStoryboard {
     class func assembleViewControllers() {
         defaultContainer.storyboardInitCompleted(ViewController.self) { (resolver, container) in
             container.weatherService = resolver.resolve(OpenWeatherAPIProtocol.self)
+            container.placesClient = resolver.resolve(GMSPlacesClient.self)
+            container.locationManager = resolver.resolve(CLLocationManager.self)
         }
         
     }
