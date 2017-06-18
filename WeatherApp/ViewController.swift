@@ -12,15 +12,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var requestButton: UIButton!
     
+    var weatherService: OpenWeatherAPIProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let builder = OpenWeatherURLBuilder()
-        let networkService = NetworkService(builder: builder)
-        let weatherService = OpenWeatherAPIService(service: networkService)
-        weatherService.delegate = self
-        weatherService.weatherForCity(city: "London", inCountry: "uk")
-        
+        requestButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+    
+    func didTapButton() {
+        weatherService?.delegate = self
+        weatherService?.weatherForCity(city: "London", inCountry: "uk")
     }
 
 }
