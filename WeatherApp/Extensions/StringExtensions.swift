@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension String {
     
     func formattedWith(params: [String]) -> String {
