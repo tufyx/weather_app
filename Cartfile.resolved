@@ -1,0 +1,3 @@
+github "Alamofire/Alamofire" "4.5.0"
+github "Swinject/Swinject" "2.1.0"
+github "Swinject/SwinjectStoryboard" "1.1.1"
