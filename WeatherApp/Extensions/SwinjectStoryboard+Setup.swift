@@ -24,8 +24,8 @@ extension SwinjectStoryboard {
     }
     
     class func assembleViewControllers() {
-        defaultContainer.storyboardInitCompleted(ViewController.self) { (resolver, cnt) in
-//            container.weatherService = resolver.resolve(OpenWeatherAPIProtocol.self)
+        defaultContainer.storyboardInitCompleted(ViewController.self) { (resolver, container) in
+            container.weatherService = resolver.resolve(OpenWeatherAPIProtocol.self)
         }
         
     }

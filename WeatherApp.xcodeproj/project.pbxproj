@@ -29,6 +29,9 @@
 		F8CBE2BF1EF6D2F800E06ED2 /* BaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBE2B91EF6D2F800E06ED2 /* BaseProtocol.swift */; };
 		F8CBE2C01EF6D2F800E06ED2 /* URLBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBE2BA1EF6D2F800E06ED2 /* URLBuilderProtocol.swift */; };
 		F8CBE2C11EF6D2F800E06ED2 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBE2BB1EF6D2F800E06ED2 /* NetworkProtocol.swift */; };
+		F8CBE2C61EF6D55B00E06ED2 /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBE2C31EF6D55B00E06ED2 /* SwinjectStoryboard+Setup.swift */; };
+		F8CBE2C71EF6D55B00E06ED2 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBE2C41EF6D55B00E06ED2 /* URLExtension.swift */; };
+		F8CBE2C81EF6D55B00E06ED2 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBE2C51EF6D55B00E06ED2 /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,9 @@
 		F8CBE2B91EF6D2F800E06ED2 /* BaseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseProtocol.swift; path = Network/BaseProtocol.swift; sourceTree = "<group>"; };
 		F8CBE2BA1EF6D2F800E06ED2 /* URLBuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLBuilderProtocol.swift; path = Network/URLBuilderProtocol.swift; sourceTree = "<group>"; };
 		F8CBE2BB1EF6D2F800E06ED2 /* NetworkProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkProtocol.swift; path = Network/NetworkProtocol.swift; sourceTree = "<group>"; };
+		F8CBE2C31EF6D55B00E06ED2 /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SwinjectStoryboard+Setup.swift"; path = "Extensions/SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
+		F8CBE2C41EF6D55B00E06ED2 /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLExtension.swift; path = Extensions/URLExtension.swift; sourceTree = "<group>"; };
+		F8CBE2C51EF6D55B00E06ED2 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Extensions/StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 		F870C55F1EF68C5E00D35E18 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F8CBE2CA1EF6D56B00E06ED2 /* Extensions */,
 				F8CBE2C21EF6D30100E06ED2 /* Network */,
 				F8CBE2B51EF6D2EC00E06ED2 /* OpenWeather */,
 				F870C5601EF68C5E00D35E18 /* AppDelegate.swift */,
@@ -212,6 +219,16 @@
 				F8CBE2BB1EF6D2F800E06ED2 /* NetworkProtocol.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		F8CBE2CA1EF6D56B00E06ED2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8CBE2C31EF6D55B00E06ED2 /* SwinjectStoryboard+Setup.swift */,
+				F8CBE2C41EF6D55B00E06ED2 /* URLExtension.swift */,
+				F8CBE2C51EF6D55B00E06ED2 /* StringExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8CBE2BF1EF6D2F800E06ED2 /* BaseProtocol.swift in Sources */,
+				F8CBE2C71EF6D55B00E06ED2 /* URLExtension.swift in Sources */,
+				F8CBE2C61EF6D55B00E06ED2 /* SwinjectStoryboard+Setup.swift in Sources */,
 				F870C5631EF68C5E00D35E18 /* ViewController.swift in Sources */,
 				F8CBE2BD1EF6D2F800E06ED2 /* APIRequest.swift in Sources */,
 				F8CBE2C01EF6D2F800E06ED2 /* URLBuilderProtocol.swift in Sources */,
@@ -366,6 +385,7 @@
 				F8CBE2B41EF6D2E600E06ED2 /* OpenWeatherURLBuilder.swift in Sources */,
 				F870C5611EF68C5E00D35E18 /* AppDelegate.swift in Sources */,
 				F8CBE2BC1EF6D2F800E06ED2 /* NetworkService.swift in Sources */,
+				F8CBE2C81EF6D55B00E06ED2 /* StringExtensions.swift in Sources */,
 				F8CBE2C11EF6D2F800E06ED2 /* NetworkProtocol.swift in Sources */,
 				F8CBE2B01EF6C79400E06ED2 /* NetworkAssembly.swift in Sources */,
 				F8CBE2BE1EF6D2F800E06ED2 /* APIEndpoint.swift in Sources */,

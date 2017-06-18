@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import Swinject
+import SwinjectStoryboard
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var requestButton: UIButton!
     
+    var weatherService: OpenWeatherAPIProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let builder = OpenWeatherURLBuilder()
-        let networkService = NetworkService(builder: builder)
-        let weatherService = OpenWeatherAPIService(service: networkService)
-        weatherService.delegate = self
-        weatherService.weatherForCity(city: "London", inCountry: "uk")
-        
+        requestButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+    
+    func didTapButton() {
+        requestButton.isEnabled = false
+        weatherService?.delegate = self
+        weatherService?.weatherForCity(city: "London", inCountry: "uk")
     }
 
 }
@@ -28,11 +32,13 @@ class ViewController: UIViewController {
 extension ViewController: OpenWeatherAPIDelegate {
     
     func didReceiveData(response: Any?) {
+        requestButton.isEnabled = true
         print("did receive open weather data")
         print("response > \(String(describing: response))")
     }
     
     func didReceive(error: NSError) {
+        requestButton.isEnabled = true
         print("did receive open weather error")
     }
     
