@@ -46,7 +46,7 @@ class CityListInteractor: CityListInteractorProtocol {
         self.userDefaults = userDefaults
         self.manager = manager
         
-        self.service.delegate = self
+        self.service.weatherDelegate = self
     }
     
     func fetchWeatherDataFor(list: [String]) {
@@ -76,7 +76,7 @@ class CityListInteractor: CityListInteractorProtocol {
     
 }
 
-extension CityListInteractor: OpenWeatherAPIDelegate {
+extension CityListInteractor: OWAPIWeatherDelegate {
     
     func didReceiveDataFor(city: CityWeatherData) {
         if weatherData.has(obj: city) {

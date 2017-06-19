@@ -18,7 +18,8 @@ extension SwinjectStoryboard {
         _ = Assembler([
             NetworkAssembly(),
             GooglePlacesAssembly(),
-            CityListAssembly()
+            CityListAssembly(),
+            CityDetailAssembly(),
             ], container: defaultContainer
         )
         
@@ -35,9 +36,7 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.storyboardInitCompleted(CityDetailViewController.self) { (resolver, container) in
-            container.weatherService = resolver.resolve(OpenWeatherAPIProtocol.self)
-            container.userDefaults = resolver.resolve(OWUserDefaultsProtocol.self)
-            container.googlePlacesService = resolver.resolve(GMSPlacesClient.self)
+            container.presenter = resolver.resolve(CityDetailPresenterProtocol.self)
         }
         
     }

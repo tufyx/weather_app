@@ -12,7 +12,9 @@ import SwiftyJSON
 
 protocol OpenWeatherAPIProtocol {
     
-    var delegate: OpenWeatherAPIDelegate? { get set }
+    weak var weatherDelegate: OWAPIWeatherDelegate? { get set }
+
+    weak var forecastDelegate: OWAPIForecastDelegate? { get set }
     
     func weatherForCity(city: String)
     
@@ -22,7 +24,7 @@ protocol OpenWeatherAPIProtocol {
     
 }
 
-protocol OpenWeatherAPIDelegate: class, BaseProtocol {
+protocol OWAPIWeatherDelegate: class, BaseProtocol {
     
     func didReceiveDataFor(city: CityWeatherData)
     
@@ -30,12 +32,20 @@ protocol OpenWeatherAPIDelegate: class, BaseProtocol {
     
 }
 
+protocol OWAPIForecastDelegate: class, BaseProtocol {
+
+    func didReceiveForecast()
+
+}
+
 class OpenWeatherAPIService: OpenWeatherAPIProtocol {
-    
+
+    weak var weatherDelegate: OWAPIWeatherDelegate?
+
+    weak var forecastDelegate: OWAPIForecastDelegate?
+
     let networkService: NetworkProtocol
     let keyProvider: APIKeyProvider
-    
-    weak var delegate: OpenWeatherAPIDelegate?
     
     init(service: NetworkProtocol, keyProvider: APIKeyProvider) {
         self.networkService = service
@@ -52,13 +62,13 @@ class OpenWeatherAPIService: OpenWeatherAPIProtocol {
         )
         
         
-        networkService.request(apiRequest: request, delegate: delegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
+        networkService.request(apiRequest: request, delegate: weatherDelegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
             if let value = response.value {
-                self.delegate?.didReceiveDataFor(city: CityWeatherData(json: JSON(value)))
+                self.weatherDelegate?.didReceiveDataFor(city: CityWeatherData(json: JSON(value)))
                 return
             }
             
-            self.delegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
+            self.weatherDelegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
             
         })
     }
@@ -73,13 +83,13 @@ class OpenWeatherAPIService: OpenWeatherAPIProtocol {
         )
         
         
-        networkService.request(apiRequest: request, delegate: delegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
+        networkService.request(apiRequest: request, delegate: weatherDelegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
             if let value = response.value {
-                self.delegate?.didReceiveDataFor(cities: JsonParser.parseJson(JSON(value)))
+                self.weatherDelegate?.didReceiveDataFor(cities: JsonParser.parseJson(JSON(value)))
                 return
             }
             
-            self.delegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
+            self.weatherDelegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
             
         })
     }
@@ -94,13 +104,13 @@ class OpenWeatherAPIService: OpenWeatherAPIProtocol {
         )
         
         
-        networkService.request(apiRequest: request, delegate: delegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
-            if let value = response.value {
-                self.delegate?.didReceiveDataFor(cities: JsonParser.parseJson(JSON(value)))
+        networkService.request(apiRequest: request, delegate: forecastDelegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
+            if let _ = response.value {
+                self.forecastDelegate?.didReceiveForecast()
                 return
             }
             
-            self.delegate?.didReceiveDataFor(city: CityWeatherData.Unknown)
+            self.forecastDelegate?.didReceiveForecast()
             
         })
     }

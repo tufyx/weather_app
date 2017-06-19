@@ -13,32 +13,47 @@ import GooglePlaces
 class CityDetailViewController: UIViewController, ReusableProtocol {
     
     var city: CityWeatherData?
-    
-    var weatherService: OpenWeatherAPIProtocol?
-    
-    var googlePlacesService: GMSPlacesClient?
-    
-    var userDefaults: OWUserDefaultsProtocol?
+
+    var presenter: CityDetailPresenterProtocol?
     
     @IBOutlet var placeImage: UIImageView!
     
     override func viewDidLoad() {
+
+        presenter?.city = city
+        presenter?.view = self
+
         if let c = city {
             title = c.name
-            let owId = userDefaults!.getGoogleIdFor(owId: String(c.id))!
-            googlePlacesService?.lookUpPhotos(forPlaceID: owId, callback: { (list, error) in
-                self.googlePlacesService?.loadPlacePhoto((list?.results[0])!, callback: { (image, error) in
-                    if let _ = error {
-                        print("error returned for image at index 0")
-                        return
-                    }
-                    
-                    self.placeImage.image = image
-                })
-            })
+            presenter?.fetchImageForPlace()
             return
         }
+        
         title = "Unknown"
     }
     
+}
+
+extension CityDetailViewController: CityDetailViewProtocol {
+
+    var context: UIViewController {
+        return self
+    }
+
+    func didReceiveForecast() {
+        print("did receive forecast")
+    }
+
+    func didReceiveError() {
+        print("did receive error")
+    }
+
+    func didFetchPlaceImage(image: UIImage?) {
+        placeImage.image = image!
+    }
+
+    func didGetErrorForImage() {
+        print("error when fetching image for place")
+    }
+
 }
