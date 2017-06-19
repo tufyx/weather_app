@@ -1,8 +1,12 @@
- Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Carthage
 Carthage
 Carthage/Checkouts
 Carthage/Build
 
+# Xcode
+xcuserdata/
 WeatherApp.xcworkspace/
+DerivedData/
+
+# Cocoapods
+Pods/
