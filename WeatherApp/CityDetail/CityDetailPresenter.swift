@@ -13,7 +13,7 @@ protocol CityDetailViewProtocol {
 
     var context: UIViewController { get }
 
-    func didReceive(forecast: [CityWeatherData])
+    func didReceive(data: [ForecastItemViewModel])
 
     func didReceiveError()
 
@@ -27,7 +27,7 @@ protocol CityDetailPresenterProtocol {
 
     var view: CityDetailViewProtocol? { get set }
 
-    var city: CityWeatherData? { get set }
+    var city: CityListItemViewModel? { get set }
 
     func fetchForecast()
 
@@ -39,7 +39,7 @@ class CityDetailPresenter: CityDetailPresenterProtocol {
 
     var view: CityDetailViewProtocol?
 
-    var city: CityWeatherData?
+    var city: CityListItemViewModel?
 
     var interactor: CityDetailInteractorProtocol
 
@@ -68,8 +68,8 @@ class CityDetailPresenter: CityDetailPresenterProtocol {
 
 extension CityDetailPresenter: CityDetailInteractorResultProtocol {
 
-    func didReceive(forecast: [CityWeatherData]) {
-        view?.didReceive(forecast: forecast)
+    func didReceive(data: [CityWeatherData]) {
+        view?.didReceive(data: data.forecastListVM)
     }
 
     func didReceiveError() {

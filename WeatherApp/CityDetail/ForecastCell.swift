@@ -14,18 +14,22 @@ class ForecastCell: UITableViewCell, ReusableProtocol {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var conditionIcon: UIImageView!
 
-    var data: CityWeatherData? {
+    var data: ForecastItemViewModel? {
         didSet {
-
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US")
-            dateFormatter.timeStyle = .short
-
-            let d = dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(data!.timestamp)))
-            timeLabel.text = "\(d)"
-            conditionLabel.text = data!.weatherConditions[0].description
-            temperatureLabel.text = "\(round(data!.main.temperature!.celsius))°C"
+            
+            timeLabel.text = "N/A"
+            conditionLabel.text = "N/A"
+            temperatureLabel.text = "N/A"
+            conditionIcon.image = UIImage(named: "sad_cloud")
+            
+            if let d = data {
+                timeLabel.text = d.formattedDate
+                conditionLabel.text = d.weatherCondition
+                temperatureLabel.text = "\(d.temperature)°C"
+                conditionIcon.downloadedFrom(link: d.icon)
+            }
         }
     }
 

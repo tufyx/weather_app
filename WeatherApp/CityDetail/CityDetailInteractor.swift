@@ -11,7 +11,7 @@ import GooglePlaces
 
 protocol CityDetailInteractorResultProtocol: class {
 
-    func didReceive(forecast: [CityWeatherData])
+    func didReceive(data: [CityWeatherData])
 
     func didReceiveError()
 
@@ -61,7 +61,8 @@ class CityDetailInteractor: CityDetailInteractorProtocol {
                     return
                 }
 
-                self.gpService.loadPlacePhoto(list!.results[0], callback: { (image, errorImage) in
+                let index = Int(arc4random()) % list!.results.count
+                self.gpService.loadPlacePhoto(list!.results[index], callback: { (image, errorImage) in
                     if let _ = errorImage {
                         self.result?.didGetErrorForImage()
                         return
@@ -84,7 +85,7 @@ class CityDetailInteractor: CityDetailInteractorProtocol {
 extension CityDetailInteractor: OWAPIForecastDelegate {
 
     func didReceive(forecast: [CityWeatherData]) {
-        result?.didReceive(forecast: forecast)
+        result?.didReceive(data: forecast)
     }
 
     func didReceive(error: NSError) {

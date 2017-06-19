@@ -13,7 +13,7 @@ protocol CityListRouterProtocol {
  
     func routeToPlaceSelectionScreen(fromContext context: UIViewController?, withDelegate delegate: GMSAutocompleteViewControllerDelegate)
     
-    func routeToCityDetailScreenFor(city: CityWeatherData, fromContext context: UIViewController?)
+    func routeToCityDetailScreenFor(city: CityListItemViewModel, fromContext context: UIViewController?)
     
 }
 
@@ -31,7 +31,7 @@ class CityListRouter: CityListRouterProtocol {
         context?.present(vc, animated: true, completion: nil)
     }
     
-    func routeToCityDetailScreenFor(city: CityWeatherData, fromContext context: UIViewController?) {
+    func routeToCityDetailScreenFor(city: CityListItemViewModel, fromContext context: UIViewController?) {
         let vc = detailStoryboard.instantiateViewController(ofType: CityDetailViewController.self)
         vc.city = city
         context?.navigationController?.pushViewController(vc, animated: true)

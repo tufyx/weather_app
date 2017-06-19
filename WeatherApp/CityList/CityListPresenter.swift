@@ -13,7 +13,7 @@ protocol CityListViewProtocol: class {
     
     var context: UIViewController? { get }
     
-    func didReceive(weatherData: [CityWeatherData])
+    func didReceiveData()
     
 }
 
@@ -23,11 +23,13 @@ protocol CityListPresenterProtocol: class {
     
     func showPlaceSelectionScreen()
     
-    func showCityDetailScreenFor(city: CityWeatherData)
+    func showCityDetailScreenFor(city: CityListItemViewModel)
     
     func checkLocationPermission()
     
     func loadData()
+    
+    func getList() -> [CityListItemViewModel]
 
 }
 
@@ -39,9 +41,12 @@ class CityListPresenter: NSObject, CityListPresenterProtocol {
     
     var router: CityListRouterProtocol
     
+    var list: [CityListItemViewModel]
+    
     init(interactor: CityListInteractorProtocol, router: CityListRouterProtocol) {
         self.interactor = interactor
         self.router = router
+        self.list = []
         super.init()
         
         self.interactor.result = self
@@ -51,7 +56,7 @@ class CityListPresenter: NSObject, CityListPresenterProtocol {
         router.routeToPlaceSelectionScreen(fromContext: view?.context, withDelegate: self)
     }
     
-    func showCityDetailScreenFor(city: CityWeatherData) {
+    func showCityDetailScreenFor(city: CityListItemViewModel) {
         router.routeToCityDetailScreenFor(city: city, fromContext: view?.context)
     }
     
@@ -63,12 +68,17 @@ class CityListPresenter: NSObject, CityListPresenterProtocol {
         interactor.loadData()
     }
     
+    func getList() -> [CityListItemViewModel] {
+        return list
+    }
+    
 }
 
 extension CityListPresenter: CityListInteractorResultProtocol {
     
     func didFetch(data: [CityWeatherData]) {
-        view?.didReceive(weatherData: data)
+        list = data.cityListVM
+        view?.didReceiveData()
     }
     
 }

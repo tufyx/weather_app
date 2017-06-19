@@ -12,7 +12,7 @@ import GooglePlaces
 
 class CityDetailViewController: UIViewController, ReusableProtocol {
     
-    var city: CityWeatherData?
+    var city: CityListItemViewModel?
 
     var presenter: CityDetailPresenterProtocol?
     
@@ -24,7 +24,7 @@ class CityDetailViewController: UIViewController, ReusableProtocol {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
 
-    var forecastData: [CityWeatherData] = []
+    var forecastData: [ForecastItemViewModel] = []
 
     override func viewDidLoad() {
 
@@ -36,11 +36,11 @@ class CityDetailViewController: UIViewController, ReusableProtocol {
 
             forecastTable.dataSource = self
 
-            temperatureLabel.text = "Temperature: \(c.main.temperature!.celsius)°C"
-            minTemperatureLabel.text = "Min: \(c.main.minTemperature!.celsius)°C"
-            maxTemperatureLabel.text = "Max: \(c.main.maxTemperature!.celsius)°C"
-            humidityLabel.text = "Humidty: \(c.main.humidty!)%"
-            pressureLabel.text = "Pressure: \(c.main.pressure!) hPa"
+            temperatureLabel.text = "Temperature: \(c.temperature)°C"
+            minTemperatureLabel.text = "Min: \(c.minTemperature)°C"
+            maxTemperatureLabel.text = "Max: \(c.maxTemperature)°C"
+            humidityLabel.text = "Humidty: \(c.humidty)%"
+            pressureLabel.text = "Pressure: \(c.pressure) hPa"
 
             presenter?.fetchImageForPlace()
             presenter?.fetchForecast()
@@ -76,8 +76,8 @@ extension CityDetailViewController: CityDetailViewProtocol {
         return self
     }
 
-    func didReceive(forecast: [CityWeatherData]) {
-        forecastData = forecast
+    func didReceive(data: [ForecastItemViewModel]) {
+        forecastData = data
         forecastTable.reloadData()
     }
 

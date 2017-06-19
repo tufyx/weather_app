@@ -15,20 +15,18 @@ class CityListViewController: UITableViewController {
     
     @IBOutlet weak var addCityButton: UIBarButtonItem!
     
-    var weatherData: [CityWeatherData] = []
-    
     var presenter: CityListPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // configure presenter
         presenter?.view = self
-        
-        tableView.tableFooterView = UIView()
-        
         presenter?.checkLocationPermission()
         presenter?.loadData()
         
+        // configure UI
+        tableView.tableFooterView = UIView()
         addCityButton.target = self
         addCityButton.action = #selector(didLaunchPlaceFinder)
     }
@@ -42,19 +40,22 @@ class CityListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if weatherData.count == 0 {
+        let list = presenter?.getList()
+        
+        if list == nil || list!.isEmpty {
             showEmptyResult()
-        } else {
-            tableView.backgroundView = UIView()
+            return 0
         }
         
-        return weatherData.count
+        tableView.backgroundView = UIView()
+        return list!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CityCell.self)
-        cell.data = weatherData[indexPath.row]
+        cell.data = presenter?.getList()[indexPath.row]
         cell.delegate = self
+        cell.backgroundColor = UIColor.green.withAlphaComponent(indexPath.row % 2 == 0 ? 0.4 : 0.2)
         return cell
     }
     
@@ -75,7 +76,7 @@ class CityListViewController: UITableViewController {
 
 extension CityListViewController: CityCellClickDelegate {
     
-    func didTapCellWith(data: CityWeatherData) {
+    func didTapCellWith(data: CityListItemViewModel) {
         presenter?.showCityDetailScreenFor(city: data)
     }
     
@@ -87,8 +88,7 @@ extension CityListViewController: CityListViewProtocol {
         return self
     }
     
-    func didReceive(weatherData: [CityWeatherData]) {
-        self.weatherData = weatherData
+    func didReceiveData() {
         tableView.reloadData()
     }
     

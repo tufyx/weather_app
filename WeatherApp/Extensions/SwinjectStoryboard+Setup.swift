@@ -17,6 +17,7 @@ extension SwinjectStoryboard {
         Container.loggingFunction = nil
         _ = Assembler([
             NetworkAssembly(),
+            AppAssembly(),
             GooglePlacesAssembly(),
             CityListAssembly(),
             CityDetailAssembly(),
@@ -25,9 +26,6 @@ extension SwinjectStoryboard {
         
         assembleViewControllers()
         
-        defaultContainer.register(OWUserDefaultsProtocol.self) { (_) -> OWUserDefaultsProtocol in
-            return OWUserDefaults()
-        }
     }
     
     class func assembleViewControllers() {

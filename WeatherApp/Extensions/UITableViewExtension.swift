@@ -21,10 +21,12 @@ extension UITableView {
 }
 
 extension UIStoryboard {
+    
     final func instantiateViewController<T: UIViewController>(ofType storyboardType: T.Type = T.self) -> T where T: ReusableProtocol {
         guard let cell = self.instantiateViewController(withIdentifier: storyboardType.reuseIdentifier) as? T else {
             fatalError("Could not instantiate storyboard with ty \(storyboardType.reuseIdentifier)")
         }
         return cell
     }
+    
 }
