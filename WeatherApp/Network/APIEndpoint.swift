@@ -11,8 +11,9 @@ import Alamofire
 
 enum URLEndpoint: String {
     
-    case Weather = "/weather"
-    case Forecast = "/forecast"
+    case Weather = "weather"
+    case Forecast = "forecast"
+    case Group = "group"
     
 }
 
@@ -28,5 +29,6 @@ class ApiEndpoint {
     
     static let Weather = ApiEndpoint(url: .Weather, method: .get)
     static let Forecast = ApiEndpoint(url: .Forecast, method: .get)
+    static let Group = ApiEndpoint(url: .Group, method: .get)
     
 }

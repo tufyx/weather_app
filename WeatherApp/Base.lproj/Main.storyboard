@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c0S-qp-uwU" id="DWL-tf-Oxh">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCt-0A-4z8">
@@ -67,6 +67,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="030-FO-0F0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="580" y="75.112443778110944"/>
+        </scene>
+        <!--City Detail View Controller-->
+        <scene sceneID="wFD-my-Bul">
+            <objects>
+                <viewController storyboardIdentifier="CityDetailViewController" id="3Mo-t5-NT5" customClass="CityDetailViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gpf-jk-RCL"/>
+                        <viewControllerLayoutGuide type="bottom" id="dNR-wu-42a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lta-2Y-NPX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="npx-XY-uB1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-lH-t2p">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qHc-lH-t2p" firstAttribute="trailing" secondItem="npx-XY-uB1" secondAttribute="trailing" id="1Y7-QE-wFc"/>
+                            <constraint firstItem="npx-XY-uB1" firstAttribute="bottom" secondItem="dNR-wu-42a" secondAttribute="top" id="7Co-K5-Wk5"/>
+                            <constraint firstItem="qHc-lH-t2p" firstAttribute="leading" secondItem="npx-XY-uB1" secondAttribute="leading" id="BJr-NM-Etz"/>
+                            <constraint firstItem="qHc-lH-t2p" firstAttribute="bottom" secondItem="dNR-wu-42a" secondAttribute="top" id="OPh-eX-XWC"/>
+                            <constraint firstItem="npx-XY-uB1" firstAttribute="top" secondItem="lta-2Y-NPX" secondAttribute="top" id="VBd-ac-mZ4"/>
+                            <constraint firstAttribute="trailing" secondItem="npx-XY-uB1" secondAttribute="trailing" id="Wpy-6m-b5C"/>
+                            <constraint firstItem="npx-XY-uB1" firstAttribute="leading" secondItem="lta-2Y-NPX" secondAttribute="leading" id="ebl-Hi-SZa"/>
+                            <constraint firstItem="qHc-lH-t2p" firstAttribute="top" secondItem="npx-XY-uB1" secondAttribute="top" id="vqu-1V-eTY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="placeImage" destination="npx-XY-uB1" id="elM-Je-5Cf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IvM-Ci-sWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1397.5999999999999" y="74.212893553223395"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tai-O9-pKZ">

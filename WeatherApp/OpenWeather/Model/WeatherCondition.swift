@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class WeatherCondition {
+class WeatherCondition: JSONProtocol {
     
     let id: Int?
     

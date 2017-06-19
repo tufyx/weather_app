@@ -15,7 +15,6 @@ class GooglePlacesAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(GMSPlacesClient.self) { (_) -> GMSPlacesClient in
-            GMSPlacesClient.provideAPIKey("AIzaSyAl59H_Z_3pJfj9brMKoOYfNELwt01yMe4")
             return GMSPlacesClient.shared()
         }
         

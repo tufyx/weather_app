@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class CityWeatherData: Equatable {
+class CityWeatherData: JSONProtocol, Equatable {
     
     let id: Int
     
