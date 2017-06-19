@@ -85,7 +85,7 @@ extension CityListInteractor: OpenWeatherAPIDelegate {
             return
         }
         
-        let l = userDefaults.save(city: OWUserDefaultsCity(googleId: gmsPlace!.placeID, owId: String(city.id)))
+        userDefaults.save(city: OWUserDefaultsCity(googleId: gmsPlace!.placeID, owId: String(city.id)))
         gmsPlace = nil
         
         weatherData.append(city)
