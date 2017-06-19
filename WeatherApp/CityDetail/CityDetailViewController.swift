@@ -16,8 +16,16 @@ class CityDetailViewController: UIViewController, ReusableProtocol {
 
     var presenter: CityDetailPresenterProtocol?
     
+    @IBOutlet weak var forecastTable: UITableView!
     @IBOutlet var placeImage: UIImageView!
-    
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var minTemperatureLabel: UILabel!
+    @IBOutlet weak var maxTemperatureLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+
+    var forecastData: [CityWeatherData] = []
+
     override func viewDidLoad() {
 
         presenter?.city = city
@@ -25,7 +33,17 @@ class CityDetailViewController: UIViewController, ReusableProtocol {
 
         if let c = city {
             title = c.name
+
+            forecastTable.dataSource = self
+
+            temperatureLabel.text = "Temperature: \(c.main.temperature!.celsius)°C"
+            minTemperatureLabel.text = "Min: \(c.main.minTemperature!.celsius)°C"
+            maxTemperatureLabel.text = "Max: \(c.main.maxTemperature!.celsius)°C"
+            humidityLabel.text = "Humidty: \(c.main.humidty!)%"
+            pressureLabel.text = "Pressure: \(c.main.pressure!) hPa"
+
             presenter?.fetchImageForPlace()
+            presenter?.fetchForecast()
             return
         }
         
@@ -34,14 +52,33 @@ class CityDetailViewController: UIViewController, ReusableProtocol {
     
 }
 
+extension CityDetailViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return forecastData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ForecastCell.self)
+        cell.data = forecastData[indexPath.row]
+        return cell
+    }
+
+}
+
 extension CityDetailViewController: CityDetailViewProtocol {
 
     var context: UIViewController {
         return self
     }
 
-    func didReceiveForecast() {
-        print("did receive forecast")
+    func didReceive(forecast: [CityWeatherData]) {
+        forecastData = forecast
+        forecastTable.reloadData()
     }
 
     func didReceiveError() {

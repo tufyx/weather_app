@@ -11,7 +11,7 @@ import GooglePlaces
 
 protocol CityDetailInteractorResultProtocol: class {
 
-    func didReceiveForecast()
+    func didReceive(forecast: [CityWeatherData])
 
     func didReceiveError()
 
@@ -83,8 +83,8 @@ class CityDetailInteractor: CityDetailInteractorProtocol {
 
 extension CityDetailInteractor: OWAPIForecastDelegate {
 
-    func didReceiveForecast() {
-        result?.didReceiveForecast()
+    func didReceive(forecast: [CityWeatherData]) {
+        result?.didReceive(forecast: forecast)
     }
 
     func didReceive(error: NSError) {

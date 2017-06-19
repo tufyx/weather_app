@@ -12,19 +12,15 @@ import SwiftyJSON
 class CityWeatherData: JSONProtocol, Equatable {
     
     let id: Int
+
+    let timestamp: Float
     
     let name: String
-    
-    let temperature: Float?
-    
-    let humidty: Float?
-    
-    let pressure: Float?
-    
-    let minTemperature: Float?
-    
-    let maxTemperature: Float?
-    
+
+    let main: MainWeatherData
+
+    let wind: WindData
+
     let visibilty: Float
     
     var weatherConditions: [WeatherCondition]
@@ -32,18 +28,14 @@ class CityWeatherData: JSONProtocol, Equatable {
     required init(json: JSON) {
         
         id = json["id"].intValue
-        
+
+        timestamp = json["dt"].floatValue
+
         name = json["name"].stringValue
-        
-        temperature = json["main"].dictionary?["temp"]?.floatValue
-        
-        minTemperature = json["main"].dictionary?["temp_min"]?.floatValue
-        
-        maxTemperature = json["main"].dictionary?["temp_max"]?.floatValue
-        
-        humidty = json["main"].dictionary?["humidity"]?.floatValue
-        
-        pressure = json["main"].dictionary?["pressure"]?.floatValue
+
+        main = MainWeatherData(json: JSON(json["main"].dictionaryValue))
+
+        wind = WindData(json: JSON(json["wind"].dictionaryValue))
         
         visibilty = json["visibility"].floatValue
         

@@ -28,8 +28,8 @@ class CityCell: UITableViewCell, ReusableProtocol {
             
             temperatureLabel.text = "N/A"
             
-            if let t = data?.temperature {
-                temperatureLabel.text = "\(round(t.celsius))°C"
+            if let t = data?.main.temperature {
+                temperatureLabel.text = "Wind \(data!.wind.speed) km/h | \(round(t.celsius))°C"
             }
             
             contentView.addGestureRecognizer(

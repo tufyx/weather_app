@@ -34,7 +34,7 @@ protocol OWAPIWeatherDelegate: class, BaseProtocol {
 
 protocol OWAPIForecastDelegate: class, BaseProtocol {
 
-    func didReceiveForecast()
+    func didReceive(forecast: [CityWeatherData])
 
 }
 
@@ -105,12 +105,12 @@ class OpenWeatherAPIService: OpenWeatherAPIProtocol {
         
         
         networkService.request(apiRequest: request, delegate: forecastDelegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
-            if let _ = response.value {
-                self.forecastDelegate?.didReceiveForecast()
+            if let value = response.value {
+                self.forecastDelegate?.didReceive(forecast: JsonParser.parseJson(JSON(value)))
                 return
             }
             
-            self.forecastDelegate?.didReceiveForecast()
+            self.forecastDelegate?.didReceive(forecast: [])
             
         })
     }

@@ -13,7 +13,7 @@ protocol CityDetailViewProtocol {
 
     var context: UIViewController { get }
 
-    func didReceiveForecast()
+    func didReceive(forecast: [CityWeatherData])
 
     func didReceiveError()
 
@@ -68,8 +68,8 @@ class CityDetailPresenter: CityDetailPresenterProtocol {
 
 extension CityDetailPresenter: CityDetailInteractorResultProtocol {
 
-    func didReceiveForecast() {
-        view?.didReceiveForecast()
+    func didReceive(forecast: [CityWeatherData]) {
+        view?.didReceive(forecast: forecast)
     }
 
     func didReceiveError() {
