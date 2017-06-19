@@ -11,7 +11,7 @@ import UIKit
 
 protocol CityCellClickDelegate {
     
-    func didTapCellWith(data: CityWeatherData)
+    func didTapCellWith(data: CityListItemViewModel)
     
 }
 
@@ -22,15 +22,15 @@ class CityCell: UITableViewCell, ReusableProtocol {
     
     var delegate: CityCellClickDelegate?
     
-    var data: CityWeatherData? {
+    var data: CityListItemViewModel? {
         didSet {
-            nameLabel.text = data?.name
-            
+            nameLabel.text = "Unknown City"
             temperatureLabel.text = "N/A"
-            
-            if let t = data?.temperature {
-                temperatureLabel.text = "\(round(t.celsius))°C"
+            if let d = data {
+                nameLabel.text = d.name
+                temperatureLabel.text = "\(d.temperature)°C"
             }
+            
             
             contentView.addGestureRecognizer(
                 UITapGestureRecognizer(

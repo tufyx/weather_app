@@ -23,3 +23,19 @@ extension Array where Element: OWUserDefaultsCity {
         })
     }
 }
+
+extension Array where Element: CityWeatherData {
+    
+    var cityListVM: [CityListItemViewModel] {
+        return self.map({ (data) -> CityListItemViewModel in
+            CityListItemViewModel(model: data)
+        })
+    }
+    
+    var forecastListVM: [ForecastItemViewModel] {
+        return self.map({ (data) -> ForecastItemViewModel in
+            ForecastItemViewModel(model: data)
+        })
+    }
+    
+}
