@@ -35,7 +35,7 @@
 		F88C8A241EF88672008C4DFB /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C8A231EF88672008C4DFB /* AppAssembly.swift */; };
 		F88C8A291EF88C9F008C4DFB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C8A281EF88C9F008C4DFB /* UIImageExtension.swift */; };
 		F88C8A2B1EF88F9A008C4DFB /* CityListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C8A2A1EF88F9A008C4DFB /* CityListItemViewModel.swift */; };
-		F88C8A2D1EF8956B008C4DFB /* ForecastItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C8A2C1EF8956B008C4DFB /* ForecastItemViewModel.swift */; };
+		F88C8A301EF89D9C008C4DFB /* ForecastItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C8A2F1EF89D9C008C4DFB /* ForecastItemViewModel.swift */; };
 		F8CBE28A1EF6B3F700E06ED2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8CBE2891EF6B3F700E06ED2 /* Alamofire.framework */; };
 		F8CBE28F1EF6B41300E06ED2 /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8CBE28E1EF6B41300E06ED2 /* SwinjectStoryboard.framework */; };
 		F8CBE2911EF6B41800E06ED2 /* SwinjectStoryboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8CBE28E1EF6B41300E06ED2 /* SwinjectStoryboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -138,7 +138,7 @@
 		F88C8A231EF88672008C4DFB /* AppAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppAssembly.swift; path = Assemblies/AppAssembly.swift; sourceTree = "<group>"; };
 		F88C8A281EF88C9F008C4DFB /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = Extensions/UIImageExtension.swift; sourceTree = "<group>"; };
 		F88C8A2A1EF88F9A008C4DFB /* CityListItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityListItemViewModel.swift; path = CityList/CityListItemViewModel.swift; sourceTree = "<group>"; };
-		F88C8A2C1EF8956B008C4DFB /* ForecastItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastItemViewModel.swift; sourceTree = "<group>"; };
+		F88C8A2F1EF89D9C008C4DFB /* ForecastItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastItemViewModel.swift; path = CityDetail/ForecastItemViewModel.swift; sourceTree = "<group>"; };
 		F8CBE2891EF6B3F700E06ED2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F8CBE28B1EF6B40100E06ED2 /* WeatherApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WeatherApp.xcodeproj; sourceTree = "<group>"; };
 		F8CBE28E1EF6B41300E06ED2 /* SwinjectStoryboard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectStoryboard.framework; path = Carthage/Build/iOS/SwinjectStoryboard.framework; sourceTree = "<group>"; };
@@ -256,12 +256,12 @@
 		F84446001EF7195700747A31 /* CityDetail */ = {
 			isa = PBXGroup;
 			children = (
+				F88C8A2F1EF89D9C008C4DFB /* ForecastItemViewModel.swift */,
 				FFBFFF521EF7D950002CC4FD /* CityDetailInteractor.swift */,
 				FFBFFF561EF7D973002CC4FD /* CityDetailPresenter.swift */,
 				FFBFFF541EF7D95E002CC4FD /* CityDetailRouter.swift */,
 				F84446031EF7199A00747A31 /* CityDetailViewController.swift */,
 				FFB96A8E1EF816060003562B /* ForecastCell.swift */,
-				F88C8A2C1EF8956B008C4DFB /* ForecastItemViewModel.swift */,
 			);
 			name = CityDetail;
 			sourceTree = "<group>";
@@ -614,7 +614,7 @@
 				F84445E21EF7132D00747A31 /* CityListViewController.swift in Sources */,
 				F84445FE1EF713EB00747A31 /* AppDelegate.swift in Sources */,
 				FFBFFF4B1EF7D90F002CC4FD /* OpenWeatherUserDefaults.swift in Sources */,
-				F88C8A2D1EF8956B008C4DFB /* ForecastItemViewModel.swift in Sources */,
+				F88C8A301EF89D9C008C4DFB /* ForecastItemViewModel.swift in Sources */,
 				F88C8A291EF88C9F008C4DFB /* UIImageExtension.swift in Sources */,
 				F8535CDC1EF7370400AE8BD5 /* CityListInteractor.swift in Sources */,
 				F8CBE2B41EF6D2E600E06ED2 /* OpenWeatherURLBuilder.swift in Sources */,
