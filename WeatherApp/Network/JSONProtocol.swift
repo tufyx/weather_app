@@ -24,3 +24,13 @@ class JsonParser {
     }
     
 }
+
+extension JSON {
+    
+    func parse<T>() -> [T] where T: JSONProtocol {
+        return self["list"].arrayValue.map({ (json) -> T in
+            T(json: json)
+        })
+    }
+    
+}

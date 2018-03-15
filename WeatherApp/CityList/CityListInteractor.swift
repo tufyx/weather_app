@@ -97,7 +97,7 @@ extension CityListInteractor: OWAPIWeatherDelegate {
         result?.didFetch(data: weatherData)
     }
     
-    func didReceive(error: NSError) {
+    func didReceive(error: Error) {
         print("did receive open weather error")
     }
     

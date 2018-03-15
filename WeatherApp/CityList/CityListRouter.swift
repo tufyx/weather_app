@@ -27,6 +27,8 @@ class CityListRouter: CityListRouterProtocol {
     
     func routeToPlaceSelectionScreen(fromContext context: UIViewController?, withDelegate delegate: GMSAutocompleteViewControllerDelegate) {
         let vc = GMSAutocompleteViewController()
+        
+        
         vc.delegate = delegate
         context?.present(vc, animated: true, completion: nil)
     }

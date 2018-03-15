@@ -88,7 +88,7 @@ extension CityDetailInteractor: OWAPIForecastDelegate {
         result?.didReceive(data: forecast)
     }
 
-    func didReceive(error: NSError) {
+    func didReceive(error: Error) {
         print("did receive error for forecast")
         result?.didReceiveError()
     }

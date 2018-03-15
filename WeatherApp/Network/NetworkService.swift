@@ -41,7 +41,7 @@ class NetworkService: NetworkProtocol {
             ).responseJSON(completionHandler: { (response) in
                 if response.result.isFailure {
                     print("error for >> \(url)")
-                    errorHandler(response.result, delegate)
+                    errorHandler(response.result.error!, delegate)
                     return
                 }
                 print("success for >> \(url)")
@@ -53,7 +53,7 @@ class NetworkService: NetworkProtocol {
 }
 
 extension NetworkService {
-    static var DefaultErrorClosure: ErrorClosure = { response, delegate in
-        delegate?.didReceive(error: response.error! as NSError)
+    static var DefaultErrorClosure: ErrorClosure = { error, delegate in
+        delegate?.didReceive(error: error)
     }
 }

@@ -41,7 +41,7 @@ class CityCell: UITableViewCell, ReusableProtocol {
         }
     }
     
-    func didTapCell() {
+    @objc func didTapCell() {
         if let d = data {
             delegate?.didTapCellWith(data: d)
             return

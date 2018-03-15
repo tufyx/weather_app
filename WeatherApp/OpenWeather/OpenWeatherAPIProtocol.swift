@@ -85,7 +85,7 @@ class OpenWeatherAPIService: OpenWeatherAPIProtocol {
         
         networkService.request(apiRequest: request, delegate: weatherDelegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
             if let value = response.value {
-                self.weatherDelegate?.didReceiveDataFor(cities: JsonParser.parseJson(JSON(value)))
+                self.weatherDelegate?.didReceiveDataFor(cities: JSON(value).parse())
                 return
             }
             
@@ -106,7 +106,7 @@ class OpenWeatherAPIService: OpenWeatherAPIProtocol {
         
         networkService.request(apiRequest: request, delegate: forecastDelegate, errorHandler: NetworkService.DefaultErrorClosure, successHandler: { (response) in
             if let value = response.value {
-                self.forecastDelegate?.didReceive(forecast: JsonParser.parseJson(JSON(value)))
+                self.forecastDelegate?.didReceive(forecast: JSON(value).parse())
                 return
             }
             

@@ -10,6 +10,6 @@ import Foundation
 
 protocol BaseProtocol {
  
-    func didReceive(error: NSError)
+    func didReceive(error: Error)
     
 }

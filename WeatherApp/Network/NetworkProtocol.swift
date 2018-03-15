@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-typealias ErrorClosure = (Result<Any>, BaseProtocol?) -> Void
+typealias ErrorClosure = (Error, BaseProtocol?) -> Void
 typealias SuccessClosure = (Result<Any>) -> Void
 
 protocol NetworkProtocol {

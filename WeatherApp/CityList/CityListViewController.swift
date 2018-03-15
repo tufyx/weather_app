@@ -31,7 +31,7 @@ class CityListViewController: UITableViewController {
         addCityButton.action = #selector(didLaunchPlaceFinder)
     }
     
-    func didLaunchPlaceFinder() {
+    @objc func didLaunchPlaceFinder() {
         presenter?.showPlaceSelectionScreen()
     }
     

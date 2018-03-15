@@ -57,6 +57,10 @@
 		F8D118081EF6EEDF002967DA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D118071EF6EEDF002967DA /* CoreLocation.framework */; };
 		FF4C032E1EF7E3B4006005D8 /* CityDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C032D1EF7E3B4006005D8 /* CityDetailAssembly.swift */; };
 		FF520BE11EF80D6200527D87 /* MainWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520BE01EF80D6200527D87 /* MainWeatherData.swift */; };
+		FF919FE4205AD7F90087B2E2 /* CityPhotoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF919FE0205AD7F90087B2E2 /* CityPhotoPresenter.swift */; };
+		FF919FE5205AD7F90087B2E2 /* CityPhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF919FE1205AD7F90087B2E2 /* CityPhotoRouter.swift */; };
+		FF919FE6205AD7F90087B2E2 /* CityPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF919FE2205AD7F90087B2E2 /* CityPhotoViewController.swift */; };
+		FF919FE7205AD7F90087B2E2 /* CityPhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF919FE3205AD7F90087B2E2 /* CityPhotoInteractor.swift */; };
 		FFB96A8D1EF80F2A0003562B /* WindData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB96A8C1EF80F2A0003562B /* WindData.swift */; };
 		FFB96A8F1EF816060003562B /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB96A8E1EF816060003562B /* ForecastCell.swift */; };
 		FFBFFF4B1EF7D90F002CC4FD /* OpenWeatherUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFFF4A1EF7D90F002CC4FD /* OpenWeatherUserDefaults.swift */; };
@@ -157,6 +161,10 @@
 		F8D118071EF6EEDF002967DA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FF4C032D1EF7E3B4006005D8 /* CityDetailAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityDetailAssembly.swift; path = Assemblies/CityDetailAssembly.swift; sourceTree = "<group>"; };
 		FF520BE01EF80D6200527D87 /* MainWeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainWeatherData.swift; path = OpenWeather/Model/MainWeatherData.swift; sourceTree = "<group>"; };
+		FF919FE0205AD7F90087B2E2 /* CityPhotoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhotoPresenter.swift; sourceTree = "<group>"; };
+		FF919FE1205AD7F90087B2E2 /* CityPhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhotoRouter.swift; sourceTree = "<group>"; };
+		FF919FE2205AD7F90087B2E2 /* CityPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhotoViewController.swift; sourceTree = "<group>"; };
+		FF919FE3205AD7F90087B2E2 /* CityPhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPhotoInteractor.swift; sourceTree = "<group>"; };
 		FFB96A8C1EF80F2A0003562B /* WindData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WindData.swift; path = OpenWeather/Model/WindData.swift; sourceTree = "<group>"; };
 		FFB96A8E1EF816060003562B /* ForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastCell.swift; path = CityDetail/ForecastCell.swift; sourceTree = "<group>"; };
 		FFBFFF4A1EF7D90F002CC4FD /* OpenWeatherUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenWeatherUserDefaults.swift; path = Application/OpenWeatherUserDefaults.swift; sourceTree = "<group>"; };
@@ -300,6 +308,10 @@
 				F8CBE2C21EF6D30100E06ED2 /* Network */,
 				F8CBE2B51EF6D2EC00E06ED2 /* OpenWeather */,
 				F84445D81EF7120B00747A31 /* Storyboard */,
+				FF919FE0205AD7F90087B2E2 /* CityPhotoPresenter.swift */,
+				FF919FE1205AD7F90087B2E2 /* CityPhotoRouter.swift */,
+				FF919FE2205AD7F90087B2E2 /* CityPhotoViewController.swift */,
+				FF919FE3205AD7F90087B2E2 /* CityPhotoInteractor.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -461,23 +473,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = tufyx;
 				TargetAttributes = {
 					F870C55C1EF68C5E00D35E18 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 7AL85EHGD2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					F870C5701EF68C5E00D35E18 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 7AL85EHGD2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F870C55C1EF68C5E00D35E18;
 					};
 					F870C57B1EF68C5E00D35E18 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 7AL85EHGD2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F870C55C1EF68C5E00D35E18;
 					};
@@ -544,9 +559,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -559,13 +577,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WeatherApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF9BDF6F2A74EF1E4A9F0BF4 /* [CP] Embed Pods Frameworks */ = {
@@ -590,6 +611,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF919FE6205AD7F90087B2E2 /* CityPhotoViewController.swift in Sources */,
 				F84445EE1EF7134D00747A31 /* ArrayExtension.swift in Sources */,
 				F8CBE2BF1EF6D2F800E06ED2 /* BaseProtocol.swift in Sources */,
 				FF520BE11EF80D6200527D87 /* MainWeatherData.swift in Sources */,
@@ -618,12 +640,15 @@
 				F88C8A291EF88C9F008C4DFB /* UIImageExtension.swift in Sources */,
 				F8535CDC1EF7370400AE8BD5 /* CityListInteractor.swift in Sources */,
 				F8CBE2B41EF6D2E600E06ED2 /* OpenWeatherURLBuilder.swift in Sources */,
+				FF919FE5205AD7F90087B2E2 /* CityPhotoRouter.swift in Sources */,
 				F84445F21EF7135800747A31 /* GooglePlacesAssembly.swift in Sources */,
 				F8535CDA1EF736A900AE8BD5 /* CityListPresenter.swift in Sources */,
 				F84445F71EF7137800747A31 /* WeatherCondition.swift in Sources */,
 				F84445E31EF7132D00747A31 /* CityCell.swift in Sources */,
+				FF919FE7205AD7F90087B2E2 /* CityPhotoInteractor.swift in Sources */,
 				F84445F81EF7137800747A31 /* CityWeatherData.swift in Sources */,
 				FFBFFF4D1EF7D91B002CC4FD /* JSONProtocol.swift in Sources */,
+				FF919FE4205AD7F90087B2E2 /* CityPhotoPresenter.swift in Sources */,
 				F8CBE2BC1EF6D2F800E06ED2 /* NetworkService.swift in Sources */,
 				F8CBE2C81EF6D55B00E06ED2 /* StringExtensions.swift in Sources */,
 				F8CBE2C11EF6D2F800E06ED2 /* NetworkProtocol.swift in Sources */,
@@ -704,15 +729,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -754,15 +787,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -801,7 +842,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tufyx.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -819,7 +861,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tufyx.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -833,7 +876,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tufyx.WeatherAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherApp.app/WeatherApp";
 			};
 			name = Debug;
@@ -848,7 +892,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tufyx.WeatherAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherApp.app/WeatherApp";
 			};
 			name = Release;
@@ -862,7 +907,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tufyx.WeatherAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = WeatherApp;
 			};
 			name = Debug;
@@ -876,7 +922,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tufyx.WeatherAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = WeatherApp;
 			};
 			name = Release;
